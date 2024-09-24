@@ -111,3 +111,8 @@ sudo pip3 install -e src/franca2ros
 - 岩上竜大,彭博,羽生浩幸,石郷岡祐,安積 卓也,“DDSとSOME/IPの協調フレームワーク.”  組込み技術とネットワークに関するワークショップ ETNET,長崎,2024.
 - Ryudai Iwakami, Bo Peng, Hiroyuki Hanyu, Tasuku Ishigooka and Takuya Azumi, “AUTOSAR AP and ROS 2 Collaboration Framework” In Proceeding of the 27th Euromicro Conference Series on Digital System Design (DSD 2024), Paris, France, August 28-30, 2024
 - 岩上竜大,彭博,羽生浩幸,石郷岡祐,安積 卓也,“ROS 2とAUTOSAR APの連携.”  ROSconJP,東京,2024.
+
+## License
+
+This project is licensed under the Apache License 2.0 - see the [LICENSE](./LICENSE) file for details.
+
