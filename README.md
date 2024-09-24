@@ -6,7 +6,6 @@ ROS2_AUTOSARAP_Bridge_ConverterはDDSとSOME/IPの変換を行い，ROS 2とAUTO
 
 ## 前提条件
 - ROS 2 humble hawksbill
-- 
 
 ## ファイルの説明
 ### shファイル
