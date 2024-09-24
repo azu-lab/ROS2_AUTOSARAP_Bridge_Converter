@@ -1,8 +1,8 @@
 # ROS2_AUTOSARAP_Bridge_Converter
 
 ## 概要
-ROS2_AUTOSARAP_Bridge_ConverterはDDSとSOME/IPの変換を行い，ROS 2とAUTOSAR Adaptive Platform (AUTOSAR AP)間をつなぐブリッジです．このブリッジによってROS 2とAUTOSAR APの連携が可能になり，ROS 2のツールをAUTOSAR APで利用することが可能になります．
-このツールは埼玉大学とEMB IV及び日立Astemoによってリリースされました．
+ROS2_AUTOSARAP_Bridge_ConverterはDDSとSOME/IPの変換を行い，ROS 2とAUTOSAR Adaptive Platform (AUTOSAR AP)間をつなぐブリッジです．ブリッジによってROS 2とAUTOSAR APの連携が可能になり，ROS 2のツールをAUTOSAR APで利用することが可能になります．
+本ツールは埼玉大学とEMB IV及び日立Astemoによってリリースされました．
 
 ## 前提条件
 - ROS 2 humble hawksbill
@@ -24,6 +24,8 @@ ROS2_AUTOSARAP_Bridge_ConverterはDDSとSOME/IPの変換を行い，ROS 2とAUTO
 EXPORT COMMONAPI_CONFIG=<PATH>/src/install/gnss_someip_lib/etc/commonapi.ini
 EXPORT COMMONAPI_DEFAULT_FOLDER=<PATH>/src/install/gnss_someip_lib/lib/
 
+EXPORT INSTALL_PATH = /usr/bin
+
 sudo apt-get update && apt install -y wget unzip git
 
 # Installation of required tools
@@ -39,12 +41,12 @@ sudo apt-get install -y libboost-all-dev nlohmann-json3-dev graphviz source-high
 sudo wget https://github.com/COVESA/capicxx-core-tools/releases/download/3.2.0.1/commonapi_core_generator.zip -P /opt 
     cd /opt 
     sudo unzip commonapi_core_generator.zip -d commonapi_core_generator 
-    sudo ln -s /opt/commonapi_core_generator/commonapi-core-generator-linux-x86_64 /usr/bin/commonapi-core-generator
+    sudo ln -s /opt/commonapi_core_generator/commonapi-core-generator-linux-x86_64 $INSTALL_PATH/commonapi-core-generator
 
 sudo wget https://github.com/COVESA/capicxx-someip-tools/releases/download/3.2.0.1/commonapi_someip_generator.zip -P /opt/ 
     cd /opt/ 
     sudo unzip commonapi_someip_generator.zip -d commonapi_someip_generator 
-    sudo ln -s /opt/commonapi_someip_generator/commonapi-someip-generator-linux-x86_64 /usr/bin/commonapi-someip-generator
+    sudo ln -s /opt/commonapi_someip_generator/commonapi-someip-generator-linux-x86_64 $INSTALL_PATH/commonapi-someip-generator
 
 cd /opt && sudo git clone https://github.com/COVESA/dlt-daemon.git -b v2.18.8 &&cd dlt-daemon 
     sudo mkdir build 
@@ -105,6 +107,7 @@ sudo pip3 install -e src/franca2ros
 4. - server_exe.sh, client_exe.shを実行し，server, clientを起動
 
 
-## Publications & presentations
+## Publications & Presentations
 - 岩上竜大,彭博,羽生浩幸,石郷岡祐,安積 卓也,“DDSとSOME/IPの協調フレームワーク.”  組込み技術とネットワークに関するワークショップ ETNET,長崎,2024.
 - Ryudai Iwakami, Bo Peng, Hiroyuki Hanyu, Tasuku Ishigooka and Takuya Azumi, “AUTOSAR AP and ROS 2 Collaboration Framework” In Proceeding of the 27th Euromicro Conference Series on Digital System Design (DSD 2024), Paris, France, August 28-30, 2024
+- 岩上竜大,彭博,羽生浩幸,石郷岡祐,安積 卓也,“ROS 2とAUTOSAR APの連携.”  ROSconJP,東京,2024.
