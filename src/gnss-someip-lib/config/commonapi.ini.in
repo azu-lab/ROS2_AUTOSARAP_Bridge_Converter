@@ -1,0 +1,14 @@
+[default]
+binding=someip
+
+[logging]
+console=true
+file=/var/log/commonapi.log
+dlt=true 
+level=debug 
+
+[proxy]
+local:gnss.GnssServer:v1_0:GnssServer=@CMAKE_INSTALL_FULL_LIBDIR@/lib@GNSS_TARGET_NAME@.so.@PROJECT_VERSION@
+
+[stub]
+local:gnss.GnssServer:v1_0:GnssServer=@CMAKE_INSTALL_FULL_LIBDIR@/lib@GNSS_TARGET_NAME@.so.@PROJECT_VERSION@

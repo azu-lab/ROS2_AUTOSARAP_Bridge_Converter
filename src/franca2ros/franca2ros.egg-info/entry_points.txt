@@ -1,0 +1,2 @@
+[console_scripts]
+fidl2ros = franca2ros.scripts.fidl2ros:main

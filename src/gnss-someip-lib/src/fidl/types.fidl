@@ -1,0 +1,10 @@
+package gnss
+
+typeCollection common {
+    version {major 1 minor 0}
+
+
+    struct Str{
+        String str
+    }
+}

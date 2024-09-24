@@ -1,0 +1,12 @@
+setup.py
+franca2ros.egg-info/PKG-INFO
+franca2ros.egg-info/SOURCES.txt
+franca2ros.egg-info/dependency_links.txt
+franca2ros.egg-info/entry_points.txt
+franca2ros.egg-info/requires.txt
+franca2ros.egg-info/top_level.txt
+franca2ros/scripts/__init__.py
+franca2ros/scripts/fidl2ros.py
+franca2ros/translator/__init__.py
+franca2ros/translator/translator.py
+tests/test.py

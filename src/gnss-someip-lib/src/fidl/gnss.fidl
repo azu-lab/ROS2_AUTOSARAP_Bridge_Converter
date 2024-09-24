@@ -1,0 +1,13 @@
+package gnss
+
+import gnss.common.* from "types.fidl"
+
+interface GnssServer {
+    version { major 1 minor 0 }
+
+    broadcast data {
+        out {
+            String str
+        }
+    }
+} 
