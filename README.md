@@ -104,7 +104,7 @@ sudo pip3 install -e src/franca2ros
 1. config/vsomeip-server.json, config/vsomeip-client.json内の設定を適切に変更する
 2. src/gnss-someip-lib/src/fidl/gnss.fdepl内のServiceID等を適切に設定する
 3. colcon.shを実行しbuild
-4. - server_exe.sh, client_exe.shを実行し，server, clientを起動
+4. server_exe.sh, client_exe.shを実行し，server, clientを起動
 
 
 ## Publications & Presentations
