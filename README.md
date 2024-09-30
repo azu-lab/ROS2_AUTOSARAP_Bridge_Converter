@@ -62,13 +62,6 @@ cd vsomeip_udp
     sudo make 
     sudo make install
 
- 
- cd /opt && sudo git clone https://github.com/COVESA/vsomeip.git && cd vsomeip 
-    sudo mkdir build 
-    cd build 
-    sudo cmake -DCMAKE_INSTALL_PREFIX=/usr .. 
-    sudo make -j$(nproc) 
-    sudo make install
 
 cd /opt && sudo git clone https://github.com/COVESA/capicxx-core-runtime.git
     cd capicxx-core-runtime 
