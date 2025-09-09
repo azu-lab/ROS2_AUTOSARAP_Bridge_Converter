@@ -1,0 +1,10 @@
+string/build/ 
+string/install/
+string/log/
+pointcloud2/build/
+pointcloud2/install/
+pointcloud2/log/
+tf2/build/
+tf2/install/
+tf2/log/
+

@@ -1,0 +1,46 @@
+{
+  "unicast": "192.168.7.1",
+  "netmask": "255.255.255.0",
+  "logging" :
+  {
+      "level" : "trace",
+      "console" : "true",
+      "file" : { "enable" : "false", "path" : "./log/tmp3.log" },
+      "dlt" : "true"
+  },
+  "applications" :
+  [
+      {
+        "name": "gnss-server",
+        "id": "0x5e3e"
+      }
+  ],
+  "servicegroups": [
+    {
+        "name" : "gnss",
+        "services" :
+        [
+            {
+                "service" : "0x64",
+                "instance" : "0x32",
+                "reliable" : { "port" : "50000", "enable-magic-cookies" : "false" }
+            }
+        ]
+    }
+],
+  "routing" : "routingmanagerd",
+  "service-discovery" :
+  {
+    "enable" : "true",
+    "multicast" : "224.244.224.245",
+    "port" : "30491",
+    "protocol" : "udp",
+    "initial_delay_min" : "10",
+    "initial_delay_max" : "100",
+    "repetitions_base_delay" : "200",
+    "repetitions_max" : "3",
+    "ttl" : "3",
+    "cyclic_offer_delay" : "2000",
+    "request_response_delay" : "1500" 
+  }
+}

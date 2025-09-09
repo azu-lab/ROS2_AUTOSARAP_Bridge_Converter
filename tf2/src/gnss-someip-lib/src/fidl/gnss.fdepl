@@ -1,0 +1,20 @@
+import "platform:/plugin/org.genivi.commonapi.someip/deployment/CommonAPI-4-SOMEIP_deployment_spec.fdepl"
+import "gnss.fidl"
+
+define org.genivi.commonapi.someip.deployment for interface gnss.GnssServer {
+
+    SomeIpServiceID = 1234
+
+    broadcast data {
+        SomeIpEventID = 38002
+        SomeIpEventGroups = { 7002 }
+    }
+}
+
+define org.genivi.commonapi.someip.deployment for provider as Service {
+
+    instance gnss.GnssServer {
+        InstanceId = "GnssServer"
+        SomeIpInstanceID = 1
+    }
+}

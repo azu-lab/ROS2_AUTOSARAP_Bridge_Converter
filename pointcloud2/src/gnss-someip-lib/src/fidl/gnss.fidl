@@ -1,0 +1,13 @@
+package gnss
+
+import gnss.common.* from "types.fidl"
+
+interface GnssServer {
+    version { major 0 minor 1 }
+
+    broadcast data {
+        out {
+            PointCloud2 data
+        }
+    }
+} 
