@@ -1,0 +1,90 @@
+package gnss 
+
+typeCollection common {
+    version {major 0 minor 1}
+
+    struct Time {
+        UInt32 hours
+        UInt32 minutes
+        UInt32 seconds
+    }
+
+    struct Dop {
+        Float hdop 
+        Float vdop 
+        Float pdop 
+    }
+
+    struct Fix {
+        Double latitude
+        Double longitude
+    }
+
+
+    struct Str{
+        String str
+    }
+
+    struct GnssData {
+        Vector3 position 
+        Time time
+    }
+
+   
+
+
+    struct Vector3{
+        Double x
+        Double y
+        Double z
+    }
+
+     struct Quaternion{
+        Double x
+        Double y
+        Double z
+        Double w
+    }
+
+    struct Tf2_transform{
+        Quaternion orientation
+        Vector3 vector
+    }
+
+    struct TransformStamped{
+        Header header
+        String child_frame_id
+        Tf2_transform transform
+    }
+
+    struct Sec_nanosec{
+        Int64 sec
+        UInt32 nanosec
+    }
+
+     struct Header{
+        UInt32 seq
+        Sec_nanosec time_stamp
+        String frame_id
+    }
+
+    struct PointField{
+        UInt8 datatype
+        String name
+        UInt32 offset
+        UInt32 count
+    }
+
+     struct PointCloud2{
+        Header header
+        UInt32 height
+        UInt32 width
+        PointField[] fields
+        Boolean is_bigendian
+        UInt32 point_step
+        UInt32 row_step
+        UInt8[] data
+        Boolean is_dense
+    }
+
+}
