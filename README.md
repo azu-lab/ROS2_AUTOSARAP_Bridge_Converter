@@ -24,6 +24,31 @@ This tool was released by Saitama University in collaboration with EMB IV and Hi
 * **vsomeip-server.json**: SOME/IP configuration file for the server
 * **vsomeip-client.json**: SOME/IP configuration file for the client
 
+## Repository layout
+
+Top-level directories and important files in this repository:
+
+- `*/src/` — primary ROS 2 packages for the bridge (for example: `gnss_someip_lib`, `gnss_bridge`, `gnss_listener`, `gnss_provider`, and `franca2ros`).
+- `string/` — workspace variants used for quick testing and experiments; each contains its own `src/`, `build/`, `install/`, and local configs.
+- `pointcloud2/`, `tf2/` — additional workspace snapshots containing examples, Dockerfiles, and tf/pointcloud-related packages and artifacts.
+- `ros/` — shared message definitions (if present) used across workspaces.
+- `config/` — VSOMEIP configuration files (`vsomeip-client.json`, `vsomeip-server.json`) and init scripts.
+- `install/`, `build/`, `log/` — build artifacts and logs (these are typically ignored by `.gitignore`).
+- Top-level scripts: `colcon.sh`, `client_exe.sh`, `server_exe.sh`, `kill_routingmanager.sh`, `Makefile` — helpers for building and running the workspace.
+
+Build examples (run from repository root):
+
+```bash
+# Full workspace build
+colcon build
+
+# Build individual packages only
+colcon build --packages-select gnss_someip_lib
+colcon build --packages-select gnss_bridge
+```
+
+Note: generated files such as `.msg` and other translator outputs are listed in `.gitignore`. If generated files were previously committed, remove them from the index with `git rm --cached <file>`.
+
 ## Setup
 
 ```bash
@@ -114,3 +139,27 @@ sudo pip3 install -e src/franca2ros
 ## License
 
 This project is licensed under the Apache License 2.0 - see the [LICENSE](./LICENSE) file for details.
+## Repository layout
+
+Top-level directories and important files in this repository:
+
+- `src/` — primary ROS 2 packages for the bridge (for example: `gnss_someip_lib`, `gnss_bridge`, `gnss_listener`, `gnss_provider`, and `franca2ros`).
+- `string/`, `int/` — workspace variants used for quick testing and experiments; each contains its own `src/`, `build/`, `install/`, and local configs.
+- `pointcloud2/`, `tf2/` — additional workspace snapshots containing examples, Dockerfiles, and tf/pointcloud-related packages and artifacts.
+- `ros/` — shared message definitions (if present) used across workspaces.
+- `config/` — VSOMEIP configuration files (`vsomeip-client.json`, `vsomeip-server.json`) and init scripts.
+- `install/`, `build/`, `log/` — build artifacts and logs (these are typically ignored by `.gitignore`).
+- Top-level scripts: `colcon.sh`, `client_exe.sh`, `server_exe.sh`, `kill_routingmanager.sh`, `Makefile` — helpers for building and running the workspace.
+
+Build examples (run from repository root):
+
+```bash
+# Full workspace build
+colcon build
+
+# Build individual packages only
+colcon build --packages-select gnss_someip_lib
+colcon build --packages-select gnss_bridge
+```
+
+Note: generated files such as `.msg` and other translator outputs are listed in `.gitignore`. If generated files were previously committed, remove them from the index with `git rm --cached <file>`.
