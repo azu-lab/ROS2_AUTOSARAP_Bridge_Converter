@@ -1,0 +1,63 @@
+{
+  "unicast" : "192.168.7.3",
+  "netmask" : "255.255.255.0",
+  
+  "logging" :
+  {
+      "level" : "debug",
+      "console" : "true",
+      "file" : { "enable" : "true", "path" : "/tmp/vsomeip.log" },
+      "dlt" : "false"
+  },
+  "applications" :
+  [
+      {
+            "name" : "HelloWorld_Someip",
+          "id" : "1667"
+      }
+  ],
+  "services":
+  [
+      {
+          "service" : "1667",
+          "instance" : "1404",
+          "unreliable" : "31404",
+          "events" :
+          [
+              {
+                  "is_reliable" : "true",
+                  "event" : "65468",
+                  "is_field" : "false"
+              }
+          ],
+          "eventgroups": [
+            {
+              "eventgroup": "1",
+              "events": [
+                "65468"
+              ]
+            }
+          ],
+          "reliable":
+          {
+              "enable-magic-cookies" : "false",
+              "port" : "50000"
+          }
+      }
+  ],
+  "routing" : "routingmanagerd",
+  "service-discovery" :
+  {
+      "enable" : "true",
+      "multicast" : "224.0.0.17",
+      "port" : "12330",
+      "protocol" : "udp",
+      "initial_delay_min" : "10",
+      "initial_delay_max" : "100",
+      "repetitions_base_delay" : "200",
+      "repetitions_max" : "3",
+      "ttl" : "5",
+      "cyclic_offer_delay" : "2000",
+      "request_response_delay" : "1500"
+  }
+}

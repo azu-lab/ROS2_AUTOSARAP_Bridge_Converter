@@ -1,30 +1,36 @@
-# ROS2_AUTOSARAP_Bridge_Converter
+# ROS2\_AUTOSARAP\_Bridge\_Converter
 
-## 概要
-ROS2_AUTOSARAP_Bridge_ConverterはDDSとSOME/IPの変換を行い，ROS 2とAUTOSAR Adaptive Platform (AUTOSAR AP)間をつなぐブリッジです．ブリッジによってROS 2とAUTOSAR APの連携が可能になり，ROS 2のツールをAUTOSAR APで利用することが可能になります．
-本ツールは埼玉大学とEMB IV及び日立Astemoによってリリースされました．
+## Overview
 
-## 前提条件
-- ROS 2 humble hawksbill
+ROS2\_AUTOSARAP\_Bridge\_Converter is a bridge that performs conversion between DDS and SOME/IP, enabling communication between ROS 2 and the AUTOSAR Adaptive Platform (AUTOSAR AP).
+With this bridge, ROS 2 and AUTOSAR AP can work together, and ROS 2 tools can be used within AUTOSAR AP.
+This tool was released by Saitama University in collaboration with EMB IV and Hitachi Astemo(currently Astemo).
 
-## ファイルの説明
-### shファイル
-- colcon.sh: ブリッジコンバータをbuildする際のファイル
-- server_exe.sh: server側を起動するファイル
-- client_exe.sh: client側を起動するファイル
-- kill_routingmanager.sh: serverやclientを強制終了するファイル
+## Prerequisites
 
-### jsonファイル(config内)
-- vsomeip-server.json: server側のsomeipの設定ファイル
-- vsomeip-client.json: client側のsomeipの設定ファイル
+* ROS 2 Humble Hawksbill
 
-## セットアップ
-```
+## File Description
 
+### Shell Scripts
+
+* **colcon.sh**: Script for building the bridge converter
+* **server\_exe.sh**: Script for launching the server side
+* **client\_exe.sh**: Script for launching the client side
+* **kill\_routingmanager.sh**: Script to force terminate server or client
+
+### JSON Files (in `config/`)
+
+* **vsomeip-server.json**: SOME/IP configuration file for the server
+* **vsomeip-client.json**: SOME/IP configuration file for the client
+
+## Setup
+
+```bash
 EXPORT COMMONAPI_CONFIG=<PATH>/src/install/gnss_someip_lib/etc/commonapi.ini
 EXPORT COMMONAPI_DEFAULT_FOLDER=<PATH>/src/install/gnss_someip_lib/lib/
 
-EXPORT INSTALL_PATH = /usr/bin
+EXPORT INSTALL_PATH=/usr/bin
 
 sudo apt-get update && apt install -y wget unzip git
 
@@ -48,7 +54,7 @@ sudo wget https://github.com/COVESA/capicxx-someip-tools/releases/download/3.2.0
     sudo unzip commonapi_someip_generator.zip -d commonapi_someip_generator 
     sudo ln -s /opt/commonapi_someip_generator/commonapi-someip-generator-linux-x86_64 $INSTALL_PATH/commonapi-someip-generator
 
-cd /opt && sudo git clone https://github.com/COVESA/dlt-daemon.git -b v2.18.8 &&cd dlt-daemon 
+cd /opt && sudo git clone https://github.com/COVESA/dlt-daemon.git -b v2.18.8 && cd dlt-daemon 
     sudo mkdir build 
     cd build 
     sudo cmake -DCMAKE_INSTALL_PREFIX=/usr .. 
@@ -62,7 +68,6 @@ cd vsomeip_udp
     sudo make 
     sudo make install
 
-
 cd /opt && sudo git clone https://github.com/COVESA/capicxx-core-runtime.git
     cd capicxx-core-runtime 
     sudo mkdir build 
@@ -75,7 +80,7 @@ cd /opt && sudo git clone https://github.com/COVESA/capicxx-someip-runtime.git
 cd capicxx-someip-runtime 
     sudo mkdir build 
     cd build 
-	sudo cmake -DCMAKE_INSTALL_PREFIX=/usr .. 
+    sudo cmake -DCMAKE_INSTALL_PREFIX=/usr .. 
     sudo make -j$(nproc) 
     sudo make install
 
@@ -90,22 +95,22 @@ cd /opt && sudo git clone https://github.com/cameron314/concurrentqueue.git
 sudo pip3 install git+https://github.com/miketsukerman/pyfranca.git
 
 sudo pip3 install -e src/franca2ros
-
 ```
 
-## 利用方法
-1. config/vsomeip-server.json, config/vsomeip-client.json内の設定を適切に変更する
-2. src/gnss-someip-lib/src/fidl/gnss.fdepl内のServiceID等を適切に設定する
-3. colcon.shを実行しbuild
-4. server_exe.sh, client_exe.shを実行し，server, clientを起動
+## Usage
 
+1. Modify the configuration in `config/vsomeip-server.json` and `config/vsomeip-client.json` as needed
+2. Configure the ServiceID and other parameters in `src/gnss-someip-lib/src/fidl/gnss.fdepl`
+3. Run `colcon.sh` to build
+4. Run `server_exe.sh` and `client_exe.sh` to launch the server and client
 
 ## Publications & Presentations
-- 岩上竜大,彭博,羽生浩幸,石郷岡祐,安積 卓也,“DDSとSOME/IPの協調フレームワーク.”  組込み技術とネットワークに関するワークショップ ETNET,長崎,2024.
-- Ryudai Iwakami, Bo Peng, Hiroyuki Hanyu, Tasuku Ishigooka and Takuya Azumi, “AUTOSAR AP and ROS 2 Collaboration Framework” In Proceeding of the 27th Euromicro Conference Series on Digital System Design (DSD 2024), Paris, France, August 28-30, 2024
-- 岩上竜大,彭博,羽生浩幸,石郷岡祐,安積 卓也,“ROS 2とAUTOSAR APの連携.”  ROSconJP,東京,2024.
+
+* Ryudai Iwakami, Bo Peng, Hiroyuki Hanyu, Tasuku Ishigooka, and Takuya Azumi, “DDS and SOME/IP Collaboration Framework.” Workshop on Embedded Technology and Network (ETNET), Nagasaki, 2024.
+* Ryudai Iwakami, Bo Peng, Hiroyuki Hanyu, Tasuku Ishigooka and Takuya Azumi, “AUTOSAR AP and ROS 2 Collaboration Framework.” In Proceedings of the 27th Euromicro Conference Series on Digital System Design (DSD 2024), Paris, France, August 28-30, 2024.
+* Ryudai Iwakami, Bo Peng, Hiroyuki Hanyu, Tasuku Ishigooka, and Takuya Azumi, “ROS 2 and AUTOSAR AP Integration.” ROSCon JP, Tokyo, Japan, 2024.
+* Ryudai Iwakami, Hiroyuki Hanyu, Tasuku Ishigooka, and Takuya Azumi, “Collaboration between the Autoware Ecosystem and AUTOSAR AP via an Open-Source DDS-SOME/IP Bridge Converter.” AutowareCon, Nagoya, Japan, 2025.
 
 ## License
 
 This project is licensed under the Apache License 2.0 - see the [LICENSE](./LICENSE) file for details.
-

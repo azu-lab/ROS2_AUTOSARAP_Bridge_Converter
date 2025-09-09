@@ -1,0 +1,62 @@
+
+    {
+      "unicast" : "192.168.7.3",
+      "netmask" : "255.255.255.0",
+      "logging" : 
+      {
+          "level" : "trace",
+          "console" : "true",
+          "file" : { "enable" : "true", "path" : "/home/ros2-humble/string_bridge/tmp3.log" },
+          "dlt" : "true"
+      },
+      "applications" :
+    [
+        {
+            "name" : "HelloWorld_Someip",
+            "id" : "1667"        }
+    ],
+    "services": [
+      {
+        "service": "1667",
+        "instance": "1404",
+        "unicast": "192.168.7.3",
+        "netmask": "255.255.255.0",
+        "events": [
+          {
+            "is_reliable": "true",
+            "event": "65468",
+            "is_field": "false"
+          }
+        ],
+        "reliable": {
+          "enable-magic-cookies": "false",
+          "port": "0"
+        },
+        "eventgroups": [
+          {
+            "eventgroup": "1",
+            "events": [
+              "65468"
+            ]
+          }
+        ]
+      }
+    ],
+    "clients" :
+    [
+        {
+            "service" : "1667",
+            "instance" : "1404",
+            "reliable" : [ "0" ]
+        }
+    ],
+      "routing" : "routingmanagerd",
+      "service-discovery" :
+      {
+          "enable" : "true",
+          "multicast" : "224.0.0.17",
+          "port" : "12330",
+          "protocol" : "udp"
+      }
+    }
+    
