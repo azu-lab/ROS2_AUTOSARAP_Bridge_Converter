@@ -131,10 +131,12 @@ sudo pip3 install -e src/franca2ros
 
 ## Publications & Presentations
 
-* Ryudai Iwakami, Bo Peng, Hiroyuki Hanyu, Tasuku Ishigooka, and Takuya Azumi, “DDS and SOME/IP Collaboration Framework.” Workshop on Embedded Technology and Network (ETNET), Nagasaki, 2024.
-* Ryudai Iwakami, Bo Peng, Hiroyuki Hanyu, Tasuku Ishigooka and Takuya Azumi, “AUTOSAR AP and ROS 2 Collaboration Framework.” In Proceedings of the 27th Euromicro Conference Series on Digital System Design (DSD 2024), Paris, France, August 28-30, 2024.
-* Ryudai Iwakami, Bo Peng, Hiroyuki Hanyu, Tasuku Ishigooka, and Takuya Azumi, “ROS 2 and AUTOSAR AP Integration.” ROSCon JP, Tokyo, Japan, 2024.
+* Ryudai Iwakami, Bo Peng, Hiroyuki Hanyu, Tasuku Ishigooka and Takuya Azumi, "AUTOSAR AP and ROS 2 Collaboration Framework for Development in Cloud Environment," in IEEE Open Journal of the Industrial Electronics Society, doi: 10.1109/OJIES.2025.3607248.
 * Ryudai Iwakami, Hiroyuki Hanyu, Tasuku Ishigooka, and Takuya Azumi, “Collaboration between the Autoware Ecosystem and AUTOSAR AP via an Open-Source DDS-SOME/IP Bridge Converter.” AutowareCon, Nagoya, Japan, 2025.
+* Ryudai Iwakami, Bo Peng, Hiroyuki Hanyu, Tasuku Ishigooka, and Takuya Azumi, “ROS 2 and AUTOSAR AP Integration.” ROSCon JP, Tokyo, Japan, 2024.
+* Ryudai Iwakami, Bo Peng, Hiroyuki Hanyu, Tasuku Ishigooka and Takuya Azumi, “AUTOSAR AP and ROS 2 Collaboration Framework.” In Proceedings of the 27th Euromicro Conference Series on Digital System Design (DSD 2024), Paris, France, August 28-30, 2024.
+* Ryudai Iwakami, Bo Peng, Hiroyuki Hanyu, Tasuku Ishigooka, and Takuya Azumi, “DDS and SOME/IP Collaboration Framework.” Workshop on Embedded Technology and Network (ETNET), Nagasaki, 2024.
+
 
 ## License
 
